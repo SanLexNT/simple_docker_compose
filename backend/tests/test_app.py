@@ -7,3 +7,11 @@ def test_index():
 
     assert response.status_code == 200
     assert response.data == b"Hello from Backend!"
+
+def test_database():
+    client = app.test_client()
+
+    response = client.get("/db")
+
+    assert response.status_code == 200
+    assert "Connected to PostgreSQL" in response.get_data(as_text=True)
