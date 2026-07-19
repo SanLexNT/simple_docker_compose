@@ -17,6 +17,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: Debug environment
+        working-directory: backend
+        run: |
+          pwd
+          ls -la
+          python --version
+          python -c "import sys; print(sys.path)"
+          python -c "import os; print(os.getcwd())"
       - name: Run tests
         working-directory: backend
         run: pytest
