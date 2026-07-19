@@ -13,5 +13,8 @@ def test_database():
 
     response = client.get("/db")
 
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200, body
+
     assert response.status_code == 200
     assert "Connected to PostgreSQL" in response.get_data(as_text=True)
