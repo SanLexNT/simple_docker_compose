@@ -23,6 +23,6 @@ jobs:
           which pytest
           pytest --version
           python -m pytest --version
-      - name: Run tests
+      - name: Run test
         working-directory: backend
         run: python -m pytest -v
