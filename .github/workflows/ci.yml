@@ -13,6 +13,8 @@ jobs:
           POSTGRES_DB: db
           POSTGRES_USER: root
           POSTGRES_PASSWORD: toor
+        ports:
+          - 5432:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -36,7 +38,7 @@ jobs:
       - name: Run test
         working-directory: backend
         env:
-          DB_HOST: postgres
+          DB_HOST: localhost
           DB_NAME: db
           DB_USER: root
           DB_PASSWORD: toor
