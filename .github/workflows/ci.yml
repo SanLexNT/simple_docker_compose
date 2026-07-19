@@ -17,19 +17,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      
-      - name: Can Python import app?
+      - name: Show pytest version
         working-directory: backend
         run: |
-          python -c "import app; print(app.__file__)"
-      - name: Debug environment
-        working-directory: backend
-        run: |
-          pwd
-          ls -la
-          python --version
-          python -c "import sys; print(sys.path)"
-          python -c "import os; print(os.getcwd())"
+          which pytest
+          pytest --version
+          python -m pytest --version
       - name: Run tests
         working-directory: backend
-        run: pytest
+        run: python -m pytest -v
